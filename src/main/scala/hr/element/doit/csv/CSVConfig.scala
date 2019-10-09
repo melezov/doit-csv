@@ -43,9 +43,9 @@ object CSVConfig {
     setDelimiter(delimiter.toString)
 
   def setEncoding(encoding: Charset) =
-    new WithEncoding(encoding)
+    new With_Encoding(encoding)
 
-  def setEncoding(encoding: String): WithEncoding =
+  def setEncoding(encoding: String): With_Encoding =
     setEncoding(Charset.forName(encoding))
 
   def setNewLine(newLine: CharSequence) =
@@ -80,7 +80,7 @@ object CSVConfig {
       setQuotes(quotes.toString)
   }
 
-  protected class WithEncoding(val encoding: Charset) {
+  protected class With_Encoding(val encoding: Charset) {
     def setDelimiter(delimiter: CharSequence) =
       new WithDelimiterAndEncoding(delimiter.toString, encoding)
 
